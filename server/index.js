@@ -16,7 +16,7 @@ app.post('/repos', function (req, res) {
 			for (var i = 0; i < result.length; i++) {
 				db.save(result[i]);
 			}
-			res.send();
+			res.send();  
 		}
 	})
   // TODO - your code here!
@@ -31,7 +31,7 @@ app.get('/repos', function (req, res) {
   // This route should send back the top 25 repos
   db.get( (error, results) => {
   	if (error) {
-  		console.log(error);
+  		console.log('error:', error);
   	} else {
   		res.send(results);
   	}

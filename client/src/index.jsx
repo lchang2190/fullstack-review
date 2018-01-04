@@ -20,10 +20,10 @@ class App extends React.Component {
       method: 'POST',
       data: JSON.stringify({username: term}),
       contentType: 'application/json',
-      success: (data) => {
-        console.log('success!', data);
-        this.getData();
+      success: () => {
 
+        this.getData();
+        console.log('success!');
       },
       error: (error) => {
         console.log('error', error);

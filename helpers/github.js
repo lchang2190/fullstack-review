@@ -1,6 +1,8 @@
 const request = require('request');
 const config = require('../config.js');
 
+let key = process.env.GH_APIKEY;
+
 let getReposByUsername = (username, callback) => {
   // TODO - Use the request module to request repos for a specific
   // user from the github API
@@ -13,7 +15,7 @@ let getReposByUsername = (username, callback) => {
     url: 'https://api.github.com/users/' + user + '/repos',
     headers: {
       'User-Agent': 'request',
-      'Authorization': `token ${config.TOKEN}`
+      'Authorization': `token ${key}`
     }
   };
 
@@ -22,7 +24,6 @@ let getReposByUsername = (username, callback) => {
       callback(error, null);
     } else { 
       var body = JSON.parse(results.body);
-      console.log(body);
       var repos = [];
       for(var i = 0; i < body.length; i++) {
         var obj = { 
